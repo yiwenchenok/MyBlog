@@ -137,6 +137,6 @@ REDIS_HOST = "127.0.0.1"
 REDIS_PORT = 6379
 
 #限制1秒的访问次数10
-IP_NUMS = 17
+IP_NUMS = 3
 
 

@@ -16,7 +16,6 @@ class YTMiddleware:
         :param request:
         :return:
         """
-
         #获取用户的ip
         cliend_ip = request.META.get("REMOTE_ADDR")
         #连接redis
