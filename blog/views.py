@@ -25,7 +25,6 @@ def is_login(func):
             return func(request,*args,**kwargs)
         else:
             return redirect('login')
-
     return inner
 
 
@@ -233,19 +232,15 @@ class PostSerachView(SearchView):
         history_hop_post = Post.objects.all().order_by('-look')[:5]
         conte['sen'] = sen
         conte['history_hop_post'] = history_hop_post
-
         print(conte)
         return conte
 
-
-
-@is_login
+@is_login #拦截器
 def detail(request):
     sen_all = Sentence.objects.all()
     sen = random.choice(sen_all)
     #历史热门推荐
     history_hop_post = Post.objects.all().order_by('-look')[:5]
-
     conte = {
         "sen":sen,
         "history_hop_post":history_hop_post,
@@ -272,7 +267,6 @@ def detail(request):
     for tag in tags:
         tag_post_list = tag.post_set.all()  # 通过一个标签对象，拿到关联的文章
         tag_post_list_all.extend(tag_post_list)  # 列表后追加一个列表
-
     conte["detail_post"] = detai_post
     conte["pre_post"] = pre_post
     conte["next_post"] = next_post
