@@ -14,8 +14,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -29,6 +27,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -52,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+     "blog.middleware.YTMiddleware",
 )
 
 ROOT_URLCONF = 'myblog.urls'
@@ -84,8 +84,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -105,14 +103,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
-
 MEDIA_ROOT = os.path.join(BASE_DIR,"static/media") #上传的文件路径
 MEDIA_URL = '/static/media/'
-
 #配置缩略图的路径
 THUMB_DIR = os.path.join(BASE_DIR,"static/media/thumb")
-
-
 #haystack框架全文检索配置
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -137,6 +131,6 @@ REDIS_HOST = "127.0.0.1"
 REDIS_PORT = 6379
 
 #限制1秒的访问次数10
-IP_NUMS = 3
+IP_NUMS = 10
 
 

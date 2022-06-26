@@ -8,6 +8,7 @@ from .connect_redis import MyRedis
 import time
 from myblog.settings import IP_NUMS
 
+
 class YTMiddleware:
     def process_request(self, request):
         """
